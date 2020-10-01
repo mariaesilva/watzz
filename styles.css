@@ -5,7 +5,7 @@
     --main-white: #d6d6d6e5;
   }
 
-body, input, button, form, textarea {
+body, input, button, form, textarea,a {
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -19,30 +19,9 @@ body, input, button, form, textarea {
     margin-right: 0.5rem;
 }
 
-.header{
-    width: 100%;
-    height: 1.5rem;
-    background: linear-gradient(180deg, var(--main-purple),var(--main-red));
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;   
-}
-
-.headertopleft{
-    margin-right: 5%!important;
-}
-
-.header a{
-    font-size: 1rem;
-    text-decoration: none;
-    color: var(--main-white);
-    text-align: right;
-    margin: 1rem;
-}
-
 nav {
     width: 100%;
-    height: 4rem;
+    height: 6rem;
     display: flex;
     background-color:var(--main-bg-color);
 }
@@ -53,45 +32,58 @@ nav {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    border-right: 2px solid;
 }
 
 .logo{
-    margin: 1rem;
+    margin: 5%;
     text-decoration: none;
 }
 
 .logo img {
-    width: 10rem;
+    width: 100%;
 }
 
 .container-busca {
+    margin: 0 5%;
     width: 70%;
-    border-left: 2px solid;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
-    padding-left: 3rem;
+    justify-content: space-between;
 }
 
 .formbusca{
     display: flex;
-    margin-left: 3rem;
-
 }
+:focus{outline: none;}
 
 .inpbusca{
     border: 0;
-    width: 20rem;
     height: 2.5rem;
     padding: 0;
+    width: 20rem;
+    box-sizing: border-box; letter-spacing: 1px;
 }
+
+.inpbusca{border: 1px solid #ccc; padding: 7px 14px 9px; transition: 0.4s;}
+
+.inpbusca ~ .focus-border:before,
+.inpbusca ~ .focus-border:after{content: ""; position: absolute; top: 0; left: 0; width: 0; height: 2px; background-color: #3399FF; transition: 0.3s;}
+.inpbusca ~ .focus-border:after{top: auto; bottom: 0; left: auto; right: 0;}
+.inpbusca ~ .focus-border i:before,
+.inpbusca ~ .focus-border i:after{content: ""; position: absolute; top: 0; left: 0; width: 2px; height: 0; background-color: #3399FF; transition: 0.4s;}
+.inpbusca ~ .focus-border i:after{left: auto; right: 0; top: auto; bottom: 0;}
+.inpbusca:focus ~ .focus-border:before,
+.inpbusca:focus ~ .focus-border:after{width: 100%; transition: 0.3s;}
+.inpbusca:focus ~ .focus-border i:before,
+.inpbusca:focus ~ .focus-border i:after{height: 100%; transition: 0.4s;}
 
 .bntbusca{
     border: 0;
     height: 2.5rem;
     width: 2.5rem;
-    background: linear-gradient(180deg, var(--main-purple),var(--main-red));
+    background: linear-gradient(to bottom right, var(--main-red) , var(--main-purple));
     padding: 0;
 }
 
@@ -102,12 +94,11 @@ nav {
 }
 
 .bntcliente{
-    margin-left: 20%;
     color: var(--main-white);
     border: 0;
     height: 2.5rem;
-    width: 13rem;
-    background: linear-gradient(180deg, var(--main-purple),var(--main-red));
+    width: 20%;
+    background: linear-gradient(to bottom right,var(--main-red) , var(--main-purple));
     padding: 0;
 }
 
@@ -126,6 +117,16 @@ nav {
     justify-content: center;
 }
 
+.content{
+    display: flex;
+    flex-direction: row;
+}
+
+.itens{
+    width: 100%;
+    background: var(--main-purple);
+}
+
 .dropbtn {
     background-color: var(--main-bg-color);
     color: white;
@@ -141,12 +142,11 @@ nav {
   }
   
   .dropdown {
-    position: relative;
-    display: inline-block;
+    display: flex;
   }
   
   .dropdown-content {
-    width: 12.5rem;
+    width: 15%;
     border-top: 2px solid;
     display: none;
     background-color: #f1f1f1;
@@ -166,7 +166,7 @@ nav {
 
   .subcategoria{
     color:var(--main-white);
-    background: linear-gradient(180deg, var(--main-purple),var(--main-red));
+    background: linear-gradient(to bottom right, var(--main-red) , var(--main-purple));
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -175,3 +175,49 @@ nav {
   .dropdown a:hover {background-color: #ddd;}
   
   .show {display: block;}
+
+  @media (orientation: portrait)
+{
+    nav{
+        flex-direction: column;
+        height: 100%;
+        align-items: center;
+    }
+
+    .container-busca{
+        width: 100%;
+        border-left: 0;
+        border-top: 2px solid;
+        margin: 0 5%;
+    }
+
+    .formbusca{
+        margin-left: 0;
+    }
+
+    .container-carrinho{
+        border-left: 0;
+        border-top: 2px solid;
+    }
+
+    .bntcliente{
+        margin: 1rem 1rem;
+    }
+
+   .container-carrinho{
+        width: 100%;
+   }
+
+   .dropbtn{
+    margin: 1rem 1rem;
+   }
+
+    .dropbtn{
+        margin-top: 1rem;
+    }
+
+    .container-logo{
+        border-right: 0;
+    }
+
+}
